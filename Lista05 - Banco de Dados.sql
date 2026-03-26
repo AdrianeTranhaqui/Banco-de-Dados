@@ -74,21 +74,21 @@ values
 ---------------------------------------lista5---------------------------------------------
 ------------------------------------------------------------------------------------------
 
---1. Conte quantos livros estão cadastrados na biblioteca usando COUNT.
+--Conte quantos livros estão cadastrados na biblioteca usando COUNT.
 select count(*) total_livros
 from lista5.livro;
 
---2. Descubra a média de tempo de empréstimo dos livros utilizando AVG.
+--Descubra a média de tempo de empréstimo dos livros utilizando AVG.
 select round (avg(data_emprestimo - data_devolucao ), 2) media_dias_emprestimo 
 from lista5.emprestimo;
 
---3. Encontre o livro mais antigo e o mais recente utilizando MIN e MAX.
+--Encontre o livro mais antigo e o mais recente utilizando MIN e MAX.
 select
     min(ano_publicacao) ano_mais_antigo, 
     max(ano_publicacao) ano_mais_recente 
 from lista5.livro;
 
---4. Liste quantos empréstimos cada usuário já fez, agrupando por nome do usuário. 
+--Liste quantos empréstimos cada usuário já fez, agrupando por nome do usuário. 
 select
 	nome,
 	count(e.idemprestimo) total_emprestimo
@@ -98,7 +98,7 @@ left join lista5.emprestimo e
 group by nome
 order by nome;
 
---5. Mostre quantos livros existem por gênero, agrupando os resultados.
+--Mostre quantos livros existem por gênero, agrupando os resultados.
 select
 	genero, 
 	count(*) Quantidade_por_genero
