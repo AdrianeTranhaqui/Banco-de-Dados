@@ -76,17 +76,17 @@ values
 ---------------------------------------lista6---------------------------------------------
 ------------------------------------------------------------------------------------------
 
---1. Crie um índice na tabela livro para melhorar a busca pelo campo titulo. 
+--Crie um índice na tabela livro para melhorar a busca pelo campo titulo. 
 
 create index idx_livro 
 	on lista6.livro(titulo);
 
---2. Crie um índice na tabela emprestimo para otimizar a busca por data_emprestimo. 
+--Crie um índice na tabela emprestimo para otimizar a busca por data_emprestimo. 
 
 create index idx_emprestimo
 	on lista6.emprestimo(data_emprestimo);
 
---3. Crie uma VIEW chamada vw_historico_emprestimos que exiba o nome do usuário, título do
+--Crie uma VIEW chamada vw_historico_emprestimos que exiba o nome do usuário, título do
 --livro, data do empréstimo e data de devolução. 
 
 create view vw_historico_emprestimos as 
@@ -105,17 +105,7 @@ inner join lista6.livro li
 select * from vw_historico_emprestimos
 order by "Cliente";
 
---4. Explique como um índice pode melhorar a performance de uma consulta e quais são os
---impactos negativos de usar muitos índices. 
-
---Um índice auxilia na identificação mais rápida de uma informação contida em uma coluna
---sem precisar passar linha por linha levando mais tempo, ele utiliza algumas comparações 
---e faz uma busca mais direta. Os impactos negativos de usar muitos causa lentidão no insert,
---update e delete pois força a atualização constante das tabelas, além disso, usar muitos 
---pode aumentar o consumo de espaço em disco e também causar mais complexidade para otimizar.
-
-
---5. Teste a performance de uma consulta antes e depois de criar um índice usando EXPLAIN
+--Teste a performance de uma consulta antes e depois de criar um índice usando EXPLAIN
 --ANALYZE. (Caso já tenha criado os índices nos exercícios 1 e 2, utilize o comando DROP
 --INDEX nome_indice; faça o teste, crie novamente e refaça o teste para analisar a diferença.)
 
