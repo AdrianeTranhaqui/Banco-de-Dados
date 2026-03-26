@@ -74,11 +74,11 @@ values
 --------------------------------------lista4---------------------------------------------
 -----------------------------------------------------------------------------------------
 
---1. Selecione todos os livros cadastrados no banco de dados.
+--Selecione todos os livros cadastrados no banco de dados.
 select * from lista4.livro;
 
 
---2. Liste o nome do usuário e o título do livro de todos os empréstimos realizados, utilizando um JOIN. 
+--Liste o nome do usuário e o título do livro de todos os empréstimos realizados, utilizando um JOIN. 
 
 select 
 	nome,
@@ -90,12 +90,12 @@ join lista4.livro li
 	on em.idlivro = li.idlivro
 order by nome;
 
---3. Selecione todos os empréstimos que ainda não foram devolvidos (status = 'emprestado').
+--Selecione todos os empréstimos que ainda não foram devolvidos (status = 'emprestado').
 
 select * from lista4.emprestimo 
 where status = 'emprestado';
 
---4. Liste todos os autores e os livros que eles escreveram. 
+--Liste todos os autores e os livros que eles escreveram. 
 
 select 
 	autor,
@@ -103,7 +103,7 @@ select
 from lista4.livro 
 order by autor;
 
---5. Crie uma consulta que mostre todos os usuários e os livros que já pegaram emprestado,
+--Crie uma consulta que mostre todos os usuários e os livros que já pegaram emprestado,
 --incluindo usuários que nunca pegaram livros.
 
 select 
