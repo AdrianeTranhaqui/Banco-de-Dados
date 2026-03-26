@@ -7,7 +7,6 @@ create table lista3.livro(
 	quantidade_estoque int not null
 );
 
-
 create table lista3.usuario(
 	idusuario serial primary key,
 	nome varchar(100) not null,
