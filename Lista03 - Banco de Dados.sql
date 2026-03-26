@@ -73,14 +73,3 @@ values
 select * from lista3.emprestimo;
 
 DELETE FROM lista3.usuario WHERE idusuario = 1; 
---A exclusão não será permitida pois a tabela emprestimo possui uma chave estrangeira
---que aponta para o usuário e o banco de dados impede porque se fosse removido o 
---registro na tabela emprestimo ficaria sem usuário válido, iria apontar para um id inexistente.
-
-------------------------------------------------------------------------------------------------
---EXPLICANDO DELETE FROM: ele permite remover apenas linha por linha,
--- e o uso de WHERE apaga apenas informações específicas. Ele pode ser desfeito usando ROLLBACK.
---QUANDO USAR? quando for necessário mais precisão e para manter o histórico de IDs. 
-
---EXPLICANDO TRUNCATE TABLE: Ele apaga todos os registros de uma vez só.
---QUANDO USAR? quando for necessário remover muitos registros de forma mais rápida.
