@@ -16,7 +16,7 @@ create table lista6.usuario(
 	endereco varchar(100) not null
 );
 
-CREATE TYPE lista5.status_tipo AS ENUM ('emprestado', 'devolvido');
+CREATE TYPE lista6.status_tipo AS ENUM ('emprestado', 'devolvido');
 
 create table lista6.emprestimo(
 	idemprestimo serial primary key,
@@ -24,7 +24,7 @@ create table lista6.emprestimo(
 	idlivro int references lista5.livro(idlivro),
 	data_emprestimo date not null,
 	data_devolucao date null,
-	status lista5.status_tipo
+	status lista6.status_tipo
 );
 
 alter table lista6.livro 
@@ -58,9 +58,9 @@ values
 ('Carla', '15915915915', 'Margarida@gmail.com', '21945874587', 'Rua4'),
 ('Maria', '35735735735', 'Bruno@gmail.com', '21912541254', 'Rua5');
 
-update lista5.usuario set telefone = '21925872587' where idusuario = 5;
+update lista6.usuario set telefone = '21925872587' where idusuario = 5;
 
-insert into lista4.emprestimo
+insert into lista6.emprestimo
 (idusuario, idlivro, data_emprestimo,data_devolucao, status) 
 values 
 (1, 1, '27-02-2026', '27-03-2026', 'emprestado'),
@@ -89,7 +89,7 @@ create index idx_emprestimo
 --Crie uma VIEW chamada vw_historico_emprestimos que exiba o nome do usuário, título do
 --livro, data do empréstimo e data de devolução. 
 
-create view vw_historico_emprestimos as 
+create view lista6.vw_historico_emprestimos as 
 select
 	us.nome as "Cliente",
 	li.titulo as "Títtulo do livro",
@@ -102,7 +102,7 @@ inner join lista6.emprestimo em
 inner join lista6.livro li 
 	on em.idlivro = li.idlivro;
 
-select * from vw_historico_emprestimos
+select * from lista6.vw_historico_emprestimos
 order by "Cliente";
 
 --Teste a performance de uma consulta antes e depois de criar um índice usando EXPLAIN
